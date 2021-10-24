@@ -1,11 +1,14 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import { App } from './App';
+import { AppProviders } from './AppProviders';
 import { reportWebVitals } from './reportWebVitals';
 
 render(
   <StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </StrictMode>,
   document.getElementById('root'),
 );
