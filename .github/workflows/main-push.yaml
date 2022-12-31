@@ -1,14 +1,15 @@
-name: Release
+name: CI (main)
 
 on:
-  workflow_dispatch:
   push:
-    tags:
+    branches:
+      - "main"
+    tags-ignore:
       - "*.*.*"
 
 jobs:
-  deploy-to-production:
-    name: Deploy to production
+  deploy-to-development:
+    name: Deploy to development
     runs-on: ubuntu-latest
     steps:
       - name: Cancel previous runs
@@ -18,7 +19,7 @@ jobs:
         uses: bobheadxi/deployments@v1
         id: deployment
         with:
-          env: production
+          env: development
           step: start
 
       - name: Checkout repository
@@ -53,4 +54,4 @@ jobs:
           step: finish
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          env_url: ${{ steps.netlify.outputs.NETLIFY_PROD_URL }}
+          env_url: ${{ steps.netlify.outputs.NETLIFY_DRAFT_URL }}
