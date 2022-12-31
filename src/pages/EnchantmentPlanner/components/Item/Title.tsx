@@ -10,7 +10,7 @@ export interface ItemTitleProps {
   id: string;
 }
 
-export const ItemTitle: React.FC<ItemTitleProps> = ({ id }) => {
+export function ItemTitle({ id }: ItemTitleProps) {
   const { mode } = useColorMode();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -63,4 +63,4 @@ export const ItemTitle: React.FC<ItemTitleProps> = ({ id }) => {
       </Tooltip>
     </Grid>
   );
-};
+}

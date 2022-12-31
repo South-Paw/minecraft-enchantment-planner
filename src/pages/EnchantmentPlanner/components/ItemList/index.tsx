@@ -4,7 +4,7 @@ import { Item } from '../Item';
 
 export interface ItemListProps {}
 
-export const ItemList: React.FC<ItemListProps> = () => {
+export function ItemList() {
   const { items, addItem } = useEnchantmentPlanner();
 
   if (items.length === 0) {
@@ -38,4 +38,4 @@ export const ItemList: React.FC<ItemListProps> = () => {
       </Stack>
     </Fade>
   );
-};
+}

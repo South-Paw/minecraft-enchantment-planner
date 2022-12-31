@@ -1,9 +1,8 @@
 import { Fade, Flex } from '@chakra-ui/react';
+import { PropsWithChildren } from 'react';
 import { useColorMode } from '../../hooks/useColorMode';
 
-export interface LayoutProps {}
-
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export function Layout({ children }: PropsWithChildren) {
   const { mode } = useColorMode();
 
   return (
@@ -17,4 +16,4 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       </Flex>
     </Fade>
   );
-};
+}

@@ -1,18 +1,15 @@
 import { Menu, MenuButton, MenuItem, MenuList, MenuProps } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 import { MinecraftEnchantment } from '../../../../../data/types';
 import { useColorMode } from '../../../../../hooks/useColorMode';
 
-export interface ItemEnchantmentSelectorProps extends MenuProps {
+export interface ItemEnchantmentSelectorProps extends Omit<MenuProps, 'children'> {
+  children?: ReactNode;
   options: MinecraftEnchantment[];
   onSelect: (id: string, level: number) => void;
 }
 
-export const ItemEnchantmentSelector: React.FC<ItemEnchantmentSelectorProps> = ({
-  children,
-  options,
-  onSelect,
-  ...rest
-}) => {
+export function ItemEnchantmentSelector({ children, options, onSelect, ...rest }: ItemEnchantmentSelectorProps) {
   const { mode } = useColorMode();
 
   return (
@@ -34,4 +31,4 @@ export const ItemEnchantmentSelector: React.FC<ItemEnchantmentSelectorProps> = (
       </MenuList>
     </Menu>
   );
-};
+}

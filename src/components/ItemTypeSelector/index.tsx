@@ -1,15 +1,17 @@
 import { Flex, Menu, MenuButton, MenuItem, MenuList, MenuProps } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 import { items } from '../../data/items';
 import { MinecraftItemType } from '../../data/types';
 import { useColorMode } from '../../hooks/useColorMode';
 import { ItemSprite } from '../ItemSprite';
 
-export interface ItemTypeSelectorProps extends MenuProps {
+export interface ItemTypeSelectorProps extends Omit<MenuProps, 'children'> {
+  children?: ReactNode;
   selected: MinecraftItemType;
   onSelect: (type: MinecraftItemType) => void;
 }
 
-export const ItemTypeSelector: React.FC<ItemTypeSelectorProps> = ({ children, selected, onSelect, ...rest }) => {
+export function ItemTypeSelector({ children, selected, onSelect, ...rest }: ItemTypeSelectorProps) {
   const { mode } = useColorMode();
 
   return (
@@ -34,4 +36,4 @@ export const ItemTypeSelector: React.FC<ItemTypeSelectorProps> = ({ children, se
       </MenuList>
     </Menu>
   );
-};
+}

@@ -30,7 +30,7 @@ export interface ItemSpriteProps extends BoxProps {
   id: MinecraftItemType;
 }
 
-export const ItemSprite: React.FC<ItemSpriteProps> = ({ id, ...rest }) => {
+export function ItemSprite({ id, ...rest }: ItemSpriteProps) {
   const backgroundPosition = useMemo(() => {
     if (!spriteMap[id]) {
       return '0px 0px';
@@ -55,4 +55,4 @@ export const ItemSprite: React.FC<ItemSpriteProps> = ({ id, ...rest }) => {
       }}
     />
   );
-};
+}

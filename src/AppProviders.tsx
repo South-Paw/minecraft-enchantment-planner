@@ -1,4 +1,5 @@
 import { IconButton } from '@chakra-ui/react';
+import { PropsWithChildren } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { HiMoon, HiSun } from 'react-icons/hi';
 import { BrowserRouter } from 'react-router-dom';
@@ -23,15 +24,17 @@ const ToggleColorModeButton: React.FC = () => {
   );
 };
 
-export const AppProviders: React.FC = ({ children }) => (
-  <HelmetProvider>
-    <Helmet titleTemplate="%s | Minecraft Enchantment Planner" defaultTitle="Minecraft Enchantment Planner" />
+export function AppProviders({ children }: PropsWithChildren) {
+  return (
+    <HelmetProvider>
+      <Helmet titleTemplate="%s | Minecraft Enchantment Planner" defaultTitle="Minecraft Enchantment Planner" />
 
-    <Theme>
-      <Layout>
-        <BrowserRouter>{children}</BrowserRouter>
-        <ToggleColorModeButton />
-      </Layout>
-    </Theme>
-  </HelmetProvider>
-);
+      <Theme>
+        <Layout>
+          <BrowserRouter>{children}</BrowserRouter>
+          <ToggleColorModeButton />
+        </Layout>
+      </Theme>
+    </HelmetProvider>
+  );
+}

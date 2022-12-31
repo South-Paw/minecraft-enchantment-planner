@@ -4,12 +4,14 @@ import { FullPageLoading } from './components/FullPageLoading';
 
 const EnchantmentPlannerPage = lazy(() => import('./pages/EnchantmentPlanner'));
 
-export const App: React.FC = () => (
-  <Suspense fallback={<FullPageLoading />}>
-    <Switch>
-      <Route path="/planner" render={() => <EnchantmentPlannerPage />} />
+export function App() {
+  return (
+    <Suspense fallback={<FullPageLoading />}>
+      <Switch>
+        <Route path="/planner" render={() => <EnchantmentPlannerPage />} />
 
-      <Route render={() => <Redirect push to="/planner" />} />
-    </Switch>
-  </Suspense>
-);
+        <Route render={() => <Redirect push to="/planner" />} />
+      </Switch>
+    </Suspense>
+  );
+}

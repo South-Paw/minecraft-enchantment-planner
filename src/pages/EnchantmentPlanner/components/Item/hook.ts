@@ -3,7 +3,7 @@ import { items as minecraftItems } from '../../../../data/items';
 import { MinecraftEnchantableItem, MinecraftItemType } from '../../../../data/types';
 import { useEnchantmentPlanner } from '../../context';
 
-export const useEnchantmentPlannerItem = (id: string) => {
+export function useEnchantmentPlannerItem(id: string) {
   const { items, updateItem, deleteItem } = useEnchantmentPlanner();
 
   const { name, type, enchantments } = useMemo(() => items.filter((i) => i.id === id)[0], [id, items]);
@@ -63,4 +63,4 @@ export const useEnchantmentPlannerItem = (id: string) => {
     updateEnchantment,
     deleteEnchantment,
   };
-};
+}

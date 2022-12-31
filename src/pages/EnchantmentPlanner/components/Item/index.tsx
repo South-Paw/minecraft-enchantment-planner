@@ -11,12 +11,14 @@ export interface ItemProps {
   enchantments: PlannerItemEnchantment[];
 }
 
-export const Item: React.FC<ItemProps> = ({ id }) => (
-  <SlideFade key={id} in offsetY="56px">
-    <Box borderWidth="1px" rounded="lg">
-      <ItemTitle id={id} />
-      <Divider />
-      <ItemEnchantments id={id} />
-    </Box>
-  </SlideFade>
-);
+export function Item({ id, name, type, enchantments }: ItemProps) {
+  return (
+    <SlideFade key={id} in offsetY="56px">
+      <Box borderWidth="1px" rounded="lg">
+        <ItemTitle id={id} />
+        <Divider />
+        <ItemEnchantments id={id} />
+      </Box>
+    </SlideFade>
+  );
+}

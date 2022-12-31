@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useReducer } from 'react';
+import { createContext, PropsWithChildren, useCallback, useContext, useReducer } from 'react';
 import { EnchantmentPlannerAction, initialState, reducer } from './reducer';
 import { PlannerItem } from './types';
 
@@ -11,7 +11,7 @@ interface EnchantmentPlannerContextProps {
 
 const EnchantmentPlannerContext = createContext<EnchantmentPlannerContextProps | undefined>(undefined);
 
-export const EnchantmentPlannerProvider: React.FC = (props) => {
+export function EnchantmentPlannerProvider(props: PropsWithChildren) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addItem = useCallback(() => dispatch({ type: EnchantmentPlannerAction.ADD }), []);
@@ -34,9 +34,9 @@ export const EnchantmentPlannerProvider: React.FC = (props) => {
       {...props}
     />
   );
-};
+}
 
-export const useEnchantmentPlanner = () => {
+export function useEnchantmentPlanner() {
   const context = useContext(EnchantmentPlannerContext);
 
   if (!context) {
@@ -44,4 +44,4 @@ export const useEnchantmentPlanner = () => {
   }
 
   return context;
-};
+}

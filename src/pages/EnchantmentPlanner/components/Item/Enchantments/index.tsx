@@ -10,7 +10,7 @@ export interface ItemEnchantmentsProps {
   id: string;
 }
 
-export const ItemEnchantments: React.FC<ItemEnchantmentsProps> = ({ id }) => {
+export function ItemEnchantments({ id }: ItemEnchantmentsProps) {
   const {
     item: {
       type: { type },
@@ -48,4 +48,4 @@ export const ItemEnchantments: React.FC<ItemEnchantmentsProps> = ({ id }) => {
       )}
     </Stack>
   );
-};
+}

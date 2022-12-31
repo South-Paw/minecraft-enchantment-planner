@@ -2,6 +2,6 @@ import { ChakraProvider, ChakraProviderProps, DeepPartial, extendTheme, Theme as
 
 const theme: DeepPartial<ChakraTheme> = extendTheme({});
 
-export interface ThemeProps extends ChakraProviderProps {}
-
-export const Theme: React.FC<ThemeProps> = (props) => <ChakraProvider theme={theme} {...props} />;
+export function Theme(props: ChakraProviderProps) {
+  return <ChakraProvider theme={theme} {...props} />;
+}

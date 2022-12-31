@@ -18,7 +18,7 @@ type Action =
   | { type: EnchantmentPlannerAction.UPDATE; id: string; item: Partial<PlannerItem> }
   | { type: EnchantmentPlannerAction.DELETE; id: string };
 
-export const reducer = (state: State, action: Action): State => {
+export function reducer(state: State, action: Action): State {
   switch (action.type) {
     case EnchantmentPlannerAction.ADD:
       return [
@@ -42,4 +42,4 @@ export const reducer = (state: State, action: Action): State => {
     default:
       throw new Error(`unknown reducer action`);
   }
-};
+}

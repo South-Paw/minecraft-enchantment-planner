@@ -10,7 +10,7 @@ export interface EnchantmentProps {
 }
 
 // TODO: implement level section
-export const Enchantment: React.FC<EnchantmentProps> = ({ id, onDelete }) => {
+export function Enchantment({ id, level, onDelete }: EnchantmentProps) {
   const enchantment = useMemo(() => enchantments.find((e) => e.id === id), [id]);
 
   if (!enchantment) {
@@ -41,4 +41,4 @@ export const Enchantment: React.FC<EnchantmentProps> = ({ id, onDelete }) => {
       </Grid>
     </SlideFade>
   );
-};
+}
